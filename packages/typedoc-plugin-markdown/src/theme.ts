@@ -14,16 +14,20 @@ import {
 import { getKindPlural } from './groups';
 import { NavigationItem } from './navigation-item';
 import {
-  indexTemplate,
-  reflectionMemberTemplate,
-  reflectionTemplate,
+  compileTemplates,
+  getCompiledTemplate,
   registerHelpers,
   registerPartials,
+  TemplateName,
 } from './render-utils';
 import { formatContents } from './utils';
 
+export { TemplateName };
+
 export class MarkdownTheme extends Theme {
   allReflectionsHaveOwnDocument!: boolean;
+  customPartials: Record<string, string>;
+  customTemplates: Partial<Record<TemplateName, string>>;
   entryDocument: string;
   entryPoints!: string[];
   filenameSeparator!: string;
@@ -52,6 +56,8 @@ export class MarkdownTheme extends Theme {
 
     // prettier-ignore
     this.allReflectionsHaveOwnDocument = this.getOption('allReflectionsHaveOwnDocument',) as boolean;
+    this.customPartials = this.getOption('customPartials') as MarkdownTheme['customPartials'];
+    this.customTemplates = this.getOption('customTemplates') as MarkdownTheme['customTemplates'];
     this.entryDocument = this.getOption('entryDocument') as string;
     this.entryPoints = this.getOption('entryPoints') as string[];
     this.filenameSeparator = this.getOption('filenameSeparator') as string;
@@ -75,8 +81,9 @@ export class MarkdownTheme extends Theme {
       [PageEvent.BEGIN]: this.onBeginPage,
     });
 
-    registerPartials();
+    registerPartials(this);
     registerHelpers(this);
+    compileTemplates(this);
   }
 
   render(page: PageEvent<Reflection>): string {
@@ -219,7 +226,7 @@ export class MarkdownTheme extends Theme {
 
   getReflectionTemplate() {
     return (pageEvent: PageEvent<ContainerReflection>) => {
-      return reflectionTemplate(pageEvent, {
+      return getCompiledTemplate(TemplateName.Reflection)(pageEvent, {
         allowProtoMethodsByDefault: true,
         allowProtoPropertiesByDefault: true,
         data: { theme: this },
@@ -229,7 +236,7 @@ export class MarkdownTheme extends Theme {
 
   getReflectionMemberTemplate() {
     return (pageEvent: PageEvent<ContainerReflection>) => {
-      return reflectionMemberTemplate(pageEvent, {
+      return getCompiledTemplate(TemplateName.ReflectionMember)(pageEvent, {
         allowProtoMethodsByDefault: true,
         allowProtoPropertiesByDefault: true,
         data: { theme: this },
@@ -239,7 +246,7 @@ export class MarkdownTheme extends Theme {
 
   getIndexTemplate() {
     return (pageEvent: PageEvent<ContainerReflection>) => {
-      return indexTemplate(pageEvent, {
+      return getCompiledTemplate(TemplateName.Index)(pageEvent, {
         allowProtoMethodsByDefault: true,
         allowProtoPropertiesByDefault: true,
         data: { theme: this },

@@ -80,6 +80,20 @@ export function load(app: Application) {
     type: ParameterType.Boolean,
     defaultValue: false,
   });
+
+  app.options.addDeclaration({
+    help: "[Markdown Plugin] Custom Handlebars partial files to register.",
+    name: 'customPartials',
+    type: ParameterType.Object,
+    defaultValue: {},
+  });
+
+  app.options.addDeclaration({
+    help: "[Markdown Plugin] Custom Handlebars template files to override defaults.",
+    name: 'customTemplates',
+    type: ParameterType.Object,
+    defaultValue: {},
+  });
 }
 
 export { MarkdownTheme };
