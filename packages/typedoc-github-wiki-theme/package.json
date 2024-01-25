@@ -1,6 +1,7 @@
 {
   "name": "typedoc-github-wiki-theme",
   "version": "2.0.0-next.4",
+  "type": "module",
   "description": "A TypeDoc ( + typedoc-plugin-markdown ) theme that generates docs compatible with Github Wiki.",
   "main": "dist/index.js",
   "files": [
@@ -21,7 +22,7 @@
     "prebuild": "rm -rf dist && prebuild-options",
     "build": "tsc",
     "build-and-test": "npm run build && npm run test",
-    "pretest": "ts-node ./test/__scripts__/prepare.ts",
+    "pretest": "ts-node-esm ./test/__scripts__/prepare.ts",
     "test": "jest",
     "test:update": "npm run build && npm test -- -u"
   },

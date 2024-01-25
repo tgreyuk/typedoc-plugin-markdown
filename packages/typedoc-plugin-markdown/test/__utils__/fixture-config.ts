@@ -175,7 +175,12 @@ export const FIXTURES: Fixture[] = [
     options: [
       {
         plugin: [
-          path.join(__dirname, '..', 'custom-plugins', 'custom-theme.mjs'),
+          path.join(
+            path.resolve(),
+            'test',
+            'custom-plugins',
+            'custom-theme.mjs',
+          ),
         ],
         theme: 'custom-theme',
       },

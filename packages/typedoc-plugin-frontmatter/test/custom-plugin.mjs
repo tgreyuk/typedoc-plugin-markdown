@@ -1,6 +1,6 @@
-const { MarkdownPageEvent } = require('typedoc-plugin-markdown');
+import { MarkdownPageEvent } from 'typedoc-plugin-markdown';
 
-function load(app) {
+export function load(app) {
   app.renderer.on(MarkdownPageEvent.BEGIN, (page) => {
     page.frontmatter = {
       title: page.model.name,
@@ -8,5 +8,3 @@ function load(app) {
     };
   });
 }
-
-exports.load = load;

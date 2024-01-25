@@ -1,11 +1,11 @@
 import { Options, Reflection } from 'typedoc';
-import { MarkdownPageEvent, MarkdownTheme } from '..';
-import { MarkdownRenderer, MarkdownRendererHooks } from '../plugin/types';
-import { partials, templates } from './resources';
-import { helpers } from './support/support.helpers';
-import { markdown } from './support/support.markdown';
-import { text } from './support/support.text';
-import { utils } from './support/support.utils';
+import { MarkdownPageEvent, MarkdownTheme } from '../index.js';
+import { MarkdownRenderer, MarkdownRendererHooks } from '../plugin/types.js';
+import { partials, templates } from './resources/index.js';
+import { helpers } from './support/support.helpers.js';
+import { markdown } from './support/support.markdown.js';
+import { text } from './support/support.text.js';
+import { utils } from './support/support.utils.js';
 
 /* start_imports */
 /* end_imports */

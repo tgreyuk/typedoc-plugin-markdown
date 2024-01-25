@@ -7,10 +7,10 @@ import {
   Renderer,
   Theme,
 } from 'typedoc';
-import { MarkdownTheme } from '../theme';
-import * as declarations from './options/declarations';
-import { generateDocs, render } from './renderer';
-import { MarkdownRenderer, MarkdownRendererHooks } from './types';
+import { MarkdownTheme } from '../theme/index.js';
+import * as declarations from './options/declarations.js';
+import { generateDocs, render } from './renderer.js';
+import { MarkdownRenderer, MarkdownRendererHooks } from './types.js';
 
 /**
  *
@@ -100,7 +100,7 @@ export function load(app: Application) {
   });
 }
 
-export * from './events';
-export * from './options/option-maps';
-export * from './options/option-types';
-export * from './types';
+export * from './events.js';
+export * from './options/option-maps.js';
+export * from './options/option-types.js';
+export * from './types.js';

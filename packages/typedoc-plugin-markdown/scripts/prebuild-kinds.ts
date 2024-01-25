@@ -5,8 +5,7 @@ import { ReflectionKind } from 'typedoc';
 
 export async function prebuildKinds() {
   const themeRenderKindConstantsFile = path.join(
-    __dirname,
-    '..',
+    path.resolve(),
     'src',
     'plugin',
     'options',

@@ -5,7 +5,7 @@ import {
   projectTemplate,
   readmeTemplate,
   reflectionTemplate,
-} from './templates';
+} from './templates/index.js';
 
 import {
   breadcrumbs,
@@ -61,7 +61,7 @@ import {
   typeOperatorType,
   unionType,
   unknownType,
-} from './partials';
+} from './partials/index.js';
 
 function bind<F, L extends any[], R>(fn: (f: F, ...a: L) => R, first: F) {
   return (...args: L) => fn(first, ...args);

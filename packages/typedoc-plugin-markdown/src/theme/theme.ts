@@ -6,12 +6,11 @@ import {
   ReflectionKind,
   Theme,
 } from 'typedoc';
-
-import { MarkdownPageEvent } from '../plugin';
-import { OutputFileStrategy } from '../plugin/options/option-maps';
-import { getNavigation } from './support/support.navigation';
-import { RenderTemplate, getUrls } from './support/support.urls';
-import { MarkdownThemeRenderContext } from './theme-render-context';
+import { MarkdownPageEvent } from '../plugin/index.js';
+import { OutputFileStrategy } from '../plugin/options/option-maps.js';
+import { getNavigation } from './support/support.navigation.js';
+import { RenderTemplate, getUrls } from './support/support.urls.js';
+import { MarkdownThemeRenderContext } from './theme-render-context.js';
 
 /**
  * This is in-built MarkdownTheme which extends TypeDocs Theme class.

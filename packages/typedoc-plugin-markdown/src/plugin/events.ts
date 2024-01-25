@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { Event, ProjectReflection, Reflection } from 'typedoc';
-import { NavigationItem, RenderTemplate, UrlMapping } from '../theme';
+import { NavigationItem, RenderTemplate, UrlMapping } from '../theme/index.js';
 
 /**
  * Extends the RendererEvent from TypeDoc to expose navigation property.

@@ -4,11 +4,11 @@ import { Callout, FileTree } from 'nextra/components';
 
 These are the additional options that can be added to the TypeDoc configuration.
 
-## frontmatterGlobals
+## frontmatterCommentTags
 
-<Callout>Specify static variables to be added to all frontmatter blocks.</Callout>
+<Callout>Specify which comment block tags should be added to frontmatter.</Callout>
 
-> Accepts a key/value object.
+> Accepts an Array.
 
 
 ```yaml filename="YAML"
@@ -21,7 +21,7 @@ sidebar: true
 
 ```json filename="typedoc.json"
 {
-  "frontmatterGlobals": {
+  "frontmatterCommentTags": {
     "layout": "docs",
     "sidebar": true
   }
@@ -31,11 +31,11 @@ sidebar: true
 
 ___
 
-## frontmatterCommentTags
+## frontmatterGlobals
 
-<Callout>Specify which comment block tags should be added to frontmatter.</Callout>
+<Callout>Specify static variables to be added to all frontmatter blocks.</Callout>
 
-> Accepts an Array.
+> Accepts a key/value object.
 
 Frontmatter variables can be added by extracting comments from block (@) tags.
 
@@ -59,26 +59,10 @@ description: A description that will be added to frontmatter.
 
 ```json filename="typedoc.json"
 {
-  "frontmatterCommentTags": [
+  "frontmatterGlobals": [
     "author",
     "description"
   ]
-}
-
-```
-
-___
-
-## preserveFrontmatterCommentTags
-
-<Callout>Preserve tags defined in frontmatter block tags in output.</Callout>
-
-> Accepts a boolean value. Defaults to `false`.
-
-
-```json filename="typedoc.json"
-{
-  "preserveFrontmatterCommentTags": false
 }
 
 ```
@@ -91,6 +75,22 @@ ___
 
 > Accepts either `"camelCase"` or `"snakeCase"`. Defaults to `"camelCase"`.
 
+
+```json filename="typedoc.json"
+{
+  "frontmatterNamingConvention": "camelCase"
+}
+
+```
+
+___
+
+## preserveFrontmatterCommentTags
+
+<Callout>Preserve tags defined in frontmatter block tags in output.</Callout>
+
+> Accepts a boolean value. Defaults to `false`.
+
 This option can configure the output style of frontmatter variables.
 
 Note that block tags should be written in camelCase.
@@ -98,7 +98,7 @@ Note that block tags should be written in camelCase.
 
 ```json filename="typedoc.json"
 {
-  "frontmatterNamingConvention": "camelCase"
+  "preserveFrontmatterCommentTags": false
 }
 
 ```

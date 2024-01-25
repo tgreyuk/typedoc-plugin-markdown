@@ -6,8 +6,8 @@ import {
   Reflection,
   ReflectionKind,
 } from 'typedoc';
-import { MarkdownPageEvent, MarkdownTheme } from '../..';
-import { OutputFileStrategy } from '../../plugin/options/option-maps';
+import { MarkdownPageEvent, MarkdownTheme } from '../../index.js';
+import { OutputFileStrategy } from '../../plugin/options/option-maps.js';
 
 export interface UrlOption {
   parentUrl?: string;
@@ -286,8 +286,9 @@ export function getUrls(theme: MarkdownTheme, project: ProjectReflection) {
 
           anchors[container.url].push(anchorId);
 
-          const count = anchors[container.url]?.filter((id) => id === anchorId)
-            ?.length;
+          const count = anchors[container.url]?.filter(
+            (id) => id === anchorId,
+          )?.length;
 
           const anchorParts = [anchorId];
 

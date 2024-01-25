@@ -1,2 +1,2 @@
-export * from './kind-defaults';
-export * from './text-mapping-defaults';
+export * from './kind-defaults.js';
+export * from './text-mapping-defaults.js';

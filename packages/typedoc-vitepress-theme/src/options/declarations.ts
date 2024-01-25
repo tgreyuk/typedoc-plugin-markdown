@@ -1,5 +1,5 @@
 import { ParameterType } from 'typedoc';
-import { DEFAULT_SIDEBAR_OPTIONS } from '../options';
+import { DEFAULT_SIDEBAR_OPTIONS } from '../options.js';
 
 /**
  *

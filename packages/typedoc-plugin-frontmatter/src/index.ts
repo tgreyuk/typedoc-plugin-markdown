@@ -6,8 +6,8 @@ import {
 } from 'typedoc';
 import { MarkdownPageEvent } from 'typedoc-plugin-markdown';
 import * as yaml from 'yaml';
-import * as options from './options/declarations';
-import { getFrontmatterTags } from './tags';
+import * as options from './options/declarations.js';
+import { getFrontmatterTags } from './tags.js';
 
 export function load(app: Application) {
   Object.entries(options).forEach(([name, option]) => {

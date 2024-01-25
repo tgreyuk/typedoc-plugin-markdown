@@ -1,6 +1,6 @@
 import { consola } from 'consola';
-import { prebuildKinds } from './prebuild-kinds';
-import { prebuildResources } from './prebuild-resources';
+import { prebuildKinds } from './prebuild-kinds.js';
+import { prebuildResources } from './prebuild-resources.js';
 
 main();
 

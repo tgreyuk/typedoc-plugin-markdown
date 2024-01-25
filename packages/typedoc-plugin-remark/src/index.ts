@@ -6,7 +6,8 @@ import {
   RendererEvent,
 } from 'typedoc';
 import { MarkdownPageEvent, OutputFileStrategy } from 'typedoc-plugin-markdown';
-import * as options from './options/declarations';
+import * as options from './options/declarations.js';
+import { parseContents } from './remark.js';
 
 export function load(app: Application) {
   Object.entries(options).forEach(([name, option]) => {
@@ -72,7 +73,6 @@ export function load(app: Application) {
     if (output.urls?.length) {
       await Promise.all(
         output.urls?.map(async (urlMapping) => {
-          const { parseContents } = await require('./remark.cjs');
           const filePath = `${output.outputDirectory}/${urlMapping.url}`;
           return await parseContents(filePath, remarkPlugins);
         }),

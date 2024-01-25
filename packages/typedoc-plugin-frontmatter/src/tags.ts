@@ -1,5 +1,5 @@
 import { Comment, CommentTag } from 'typedoc';
-import { FrontmatterNamingConvention } from './options/maps';
+import { FrontmatterNamingConvention } from './options/maps.js';
 
 export function getFrontmatterTags(
   comment: Comment,

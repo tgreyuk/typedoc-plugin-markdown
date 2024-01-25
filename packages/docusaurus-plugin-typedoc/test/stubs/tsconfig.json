@@ -9,7 +9,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strictNullChecks": false,
-    "target": "es2020"
+    "target": "es2020",
   },
-  "include": ["./*.ts"]
+  "include": ["./src/*.ts"],
 }

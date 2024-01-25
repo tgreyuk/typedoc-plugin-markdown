@@ -1,8 +1,9 @@
 {
   "name": "docusaurus-plugin-typedoc",
   "version": "1.0.0-next.25",
+  "type": "module",
   "description": "A Docusaurus plugin to integrate TypeDoc into a Docusaurus project.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "files": [
     "dist/"
   ],
@@ -20,11 +21,12 @@
   },
   "scripts": {
     "lint": "eslint ./src --ext .ts",
-    "prepublishOnly": "npm run lint && npm run build",
+    "prepublishOnly": "npm run build",
     "build": "rm -rf ./dist && tsc",
     "build-and-test": "npm run build && npm run test",
+    "pretest": "rm -rf ./test/out && docusaurus generate-typedoc",
     "test": "jest",
-    "test:update": "npm test -- -u"
+    "test:update": "npm run build && npm test -- -u"
   },
   "author": "Thomas Grey",
   "license": "MIT",
@@ -37,6 +39,7 @@
     "api"
   ],
   "devDependencies": {
+    "@docusaurus/core": "^3.0.0",
     "@docusaurus/types": "^3.0.0"
   }
 }

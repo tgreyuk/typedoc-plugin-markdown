@@ -6,8 +6,8 @@ import {
   Reflection,
   Renderer,
 } from 'typedoc';
-import { MarkdownPageEvent, MarkdownRendererEvent } from './events';
-import { nicePath, writeFileSync } from './utils';
+import { MarkdownPageEvent, MarkdownRendererEvent } from './events.js';
+import { nicePath, writeFileSync } from './utils.js';
 
 /**
  * Contains functionality to decouple HTML logic from the TypeDoc's {@link Renderer}.

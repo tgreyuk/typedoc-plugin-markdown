@@ -1,6 +1,7 @@
 {
   "name": "typedoc-vitepress-theme",
   "version": "1.0.0-next.7",
+  "type": "module",
   "description": "A TypeDoc ( + typedoc-plugin-markdown ) theme that generates docs compatible with VitePress.",
   "main": "./dist/index.js",
   "files": [
@@ -22,7 +23,7 @@
     "prebuild": "rm -rf dist && prebuild-options",
     "build": "tsc",
     "build-and-test": "npm run build && npm run test",
-    "pretest": "ts-node ./test/__scripts__/prepare.ts",
+    "pretest": "ts-node-esm ./test/__scripts__/prepare.ts",
     "test": "jest",
     "test:update": "npm run build && npm test -- -u"
   },

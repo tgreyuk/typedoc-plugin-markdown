@@ -1,5 +1,5 @@
 import { DeclarationOption, ParameterType } from 'typedoc';
-import { FrontmatterNamingConvention } from './maps';
+import { FrontmatterNamingConvention } from './maps.js';
 
 /**
  *

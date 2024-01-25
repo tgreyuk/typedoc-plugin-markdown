@@ -1,2 +1,2 @@
-export { PluginOptions } from './models';
-export { default } from './plugin';
+export { PluginOptions } from './models.js';
+export { default } from './plugin.js';

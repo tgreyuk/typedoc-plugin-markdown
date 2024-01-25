@@ -2,10 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Application, PageEvent } from 'typedoc';
 import { MarkdownRendererEvent } from 'typedoc-plugin-markdown';
-import { PluginOptions } from '.';
-import { getPluginOptions } from './options';
-import { getSidebar } from './sidebar';
-import { DocusuaurusTheme } from './theme';
+import { PluginOptions } from './models.js';
+import { getPluginOptions } from './options.js';
+import { getSidebar } from './sidebar.js';
+import { DocusuaurusTheme } from './theme.js';
 
 // store list of plugin ids when running multiple instances
 const apps: string[] = [];

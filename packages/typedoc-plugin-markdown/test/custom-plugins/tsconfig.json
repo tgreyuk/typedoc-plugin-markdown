@@ -3,13 +3,13 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "lib": ["es2020", "dom"],
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strictNullChecks": false,
-    "target": "es2020"
+    "target": "es2020",
   },
-  "include": ["*.ts"]
+  "include": ["*.ts"],
 }

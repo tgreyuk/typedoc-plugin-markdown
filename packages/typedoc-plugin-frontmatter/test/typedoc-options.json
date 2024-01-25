@@ -1,10 +1,6 @@
 {
   "extends": "./typedoc-base.json",
-  "plugin": [
-    "typedoc-plugin-markdown",
-    "typedoc-plugin-frontmatter",
-    "./custom-plugin"
-  ],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
   "frontmatterGlobals": {
     "layout": "blog",
     "navOrder": 1,

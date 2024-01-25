@@ -1,17 +1,18 @@
 {
   "name": "typedoc-plugin-markdown",
   "version": "4.0.0-next.43",
+  "type": "module",
   "description": "A plugin for TypeDoc that enables TypeScript API documentation to be generated in Markdown.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "files": [
     "dist/"
   ],
   "scripts": {
     "lint": "eslint ./src --ext .ts",
     "prepublishOnly": "npm run lint && npm run build",
-    "prebuild": "rm -rf dist && prebuild-options && ts-node scripts/prebuild",
+    "prebuild": "rm -rf dist && prebuild-options && ts-node-esm scripts/prebuild.ts",
     "build": "tsc",
-    "pretest": "ts-node ./test/__scripts__/prepare",
+    "pretest": "ts-node-esm ./test/__scripts__/prepare.ts",
     "test-md": "node test/__scripts__/lint.md.mjs",
     "test-mdx": "node test/__scripts__/lint.mdx.mjs",
     "test": "npm run test-md && npm run test-mdx && jest",

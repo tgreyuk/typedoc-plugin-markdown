@@ -1,6 +1,7 @@
 {
   "name": "typedoc-plugin-frontmatter",
   "version": "0.0.3-next.0",
+  "type": "module",
   "description": "A plugin for TypeDoc that prepends configurable frontmatter to page content.",
   "main": "dist/index.js",
   "files": [
@@ -12,8 +13,9 @@
     "prebuild": "rm -rf dist && prebuild-options",
     "build": "tsc",
     "build-and-test": "npm run build && npm run test",
-    "pretest": "ts-node ./test/__scripts__/prepare.ts",
-    "test": "jest"
+    "pretest": "ts-node-esm ./test/__scripts__/prepare.ts",
+    "test": "jest",
+    "test:update": "npm run build && npm test -- -u"
   },
   "author": "Tom Grey",
   "license": "MIT",

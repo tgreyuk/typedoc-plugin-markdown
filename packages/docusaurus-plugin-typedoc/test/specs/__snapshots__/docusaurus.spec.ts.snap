@@ -1,13 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Docusaurus: Defaults should generate typedoc sidebar 1`] = `
-"// @ts-check
-/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const typedocSidebar = { items: [{"type":"category","label":"module-1","items":[{"type":"category","label":"Classes","items":[{"type":"doc","id":"/module-1/classes/ClassA","label":"ClassA"},{"type":"doc","id":"/module-1/classes/ClassB","label":"ClassB"}]},{"type":"category","label":"Interfaces","items":[{"type":"doc","id":"/module-1/interfaces/InterfaceA","label":"InterfaceA"},{"type":"doc","id":"/module-1/interfaces/InterfaceB","label":"InterfaceB"}]}],"link":{"type":"doc","id":"/module-1/index"}},{"type":"category","label":"module-2","items":[{"type":"category","label":"Classes","items":[{"type":"doc","id":"/module-2/classes/ClassA","label":"ClassA"},{"type":"doc","id":"/module-2/classes/ClassB","label":"ClassB"}]},{"type":"category","label":"Interfaces","items":[{"type":"doc","id":"/module-2/interfaces/InterfaceA","label":"InterfaceA"},{"type":"doc","id":"/module-2/interfaces/InterfaceB","label":"InterfaceB"}]}],"link":{"type":"doc","id":"/module-2/index"}}]};
-module.exports = typedocSidebar.items;"
-`;
-
-exports[`Docusaurus: Defaults should render 1`] = `
+exports[`Docusaurus: Defaults should render docs 1`] = `
 "# docusaurus-plugin-typedoc
 
 ## Modules
@@ -17,19 +10,64 @@ exports[`Docusaurus: Defaults should render 1`] = `
 "
 `;
 
-exports[`Docusaurus: Global members should generate typedoc sidebar 2 1`] = `
+exports[`Docusaurus: Defaults should render sidebar 1`] = `
 "// @ts-check
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const typedocSidebar = { items: [{"type":"category","label":"module-1","items":[{"type":"category","label":"Classes","items":[{"type":"doc","id":"/module-1/classes/ClassA","label":"ClassA"},{"type":"doc","id":"/module-1/classes/ClassB","label":"ClassB"}]},{"type":"category","label":"Interfaces","items":[{"type":"doc","id":"/module-1/interfaces/InterfaceA","label":"InterfaceA"},{"type":"doc","id":"/module-1/interfaces/InterfaceB","label":"InterfaceB"}]}],"link":{"type":"doc","id":"/module-1/index"}},{"type":"category","label":"module-2","items":[{"type":"category","label":"Classes","items":[{"type":"doc","id":"/module-2/classes/ClassA","label":"ClassA"},{"type":"doc","id":"/module-2/classes/ClassB","label":"ClassB"}]},{"type":"category","label":"Interfaces","items":[{"type":"doc","id":"/module-2/interfaces/InterfaceA","label":"InterfaceA"},{"type":"doc","id":"/module-2/interfaces/InterfaceB","label":"InterfaceB"}]}],"link":{"type":"doc","id":"/module-2/index"}}]};
+const typedocSidebar = { items: [{"type":"category","label":"module-1","items":[{"type":"category","label":"Classes","items":[{"type":"doc","id":"out/default/module-1/classes/ClassA","label":"ClassA"},{"type":"doc","id":"out/default/module-1/classes/ClassB","label":"ClassB"}]},{"type":"category","label":"Interfaces","items":[{"type":"doc","id":"out/default/module-1/interfaces/InterfaceA","label":"InterfaceA"},{"type":"doc","id":"out/default/module-1/interfaces/InterfaceB","label":"InterfaceB"}]}],"link":{"type":"doc","id":"out/default/module-1/index"}},{"type":"category","label":"module-2","items":[{"type":"category","label":"Classes","items":[{"type":"doc","id":"out/default/module-2/classes/ClassA","label":"ClassA"},{"type":"doc","id":"out/default/module-2/classes/ClassB","label":"ClassB"}]},{"type":"category","label":"Interfaces","items":[{"type":"doc","id":"out/default/module-2/interfaces/InterfaceA","label":"InterfaceA"},{"type":"doc","id":"out/default/module-2/interfaces/InterfaceB","label":"InterfaceB"}]}],"link":{"type":"doc","id":"out/default/module-2/index"}}]};
 module.exports = typedocSidebar.items;"
 `;
 
-exports[`Docusaurus: Global members should render 2 1`] = `
+exports[`Docusaurus: Global Members should render docs 1`] = `
 "# docusaurus-plugin-typedoc
 
-## Modules
+## Classes
 
-- [module-1](module-1/index.md)
-- [module-2](module-2/index.md)
+- [ClassA](classes/ClassA.md)
+- [ClassB](classes/ClassB.md)
+
+## Interfaces
+
+- [InterfaceA](interfaces/InterfaceA.md)
+- [InterfaceB](interfaces/InterfaceB.md)
 "
+`;
+
+exports[`Docusaurus: Global Members should render sidebar 1`] = `
+"// @ts-check
+/** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
+const typedocSidebar = { items: [
+  {
+    "type": "category",
+    "label": "Classes",
+    "items": [
+      {
+        "type": "doc",
+        "id": "out/global-members/classes/ClassA",
+        "label": "ClassA"
+      },
+      {
+        "type": "doc",
+        "id": "out/global-members/classes/ClassB",
+        "label": "ClassB"
+      }
+    ]
+  },
+  {
+    "type": "category",
+    "label": "Interfaces",
+    "items": [
+      {
+        "type": "doc",
+        "id": "out/global-members/interfaces/InterfaceA",
+        "label": "InterfaceA"
+      },
+      {
+        "type": "doc",
+        "id": "out/global-members/interfaces/InterfaceB",
+        "label": "InterfaceB"
+      }
+    ]
+  }
+]};
+module.exports = typedocSidebar.items;"
 `;

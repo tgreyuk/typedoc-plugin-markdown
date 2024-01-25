@@ -6,11 +6,11 @@ These are the additional options that can be added to the TypeDoc configuration.
 
 ## Output Options
 
-### outputFileStrategy
+### anchorPrefix
 
-<Callout>Determines how output files are generated.</Callout>
+<Callout>Custom anchor prefix</Callout>
 
-> Accepts either `"members"` or `"modules"`. Defaults to `"members"`.
+> Accepts a string value. Defaults to `"undefined"`.
 
 
 TypeDoc creates documentation according to exports derived from the given [`entryPointsStrategy`](https://typedoc.org/options/input/#entrypointstrategy) configuration.
@@ -28,7 +28,7 @@ Generates a single file for every Module or Namespace where all members are hois
 
 ```json filename="typedoc.json"
 {
-  "outputFileStrategy": "members"
+  "anchorPrefix": "undefined"
 }
 
 ```
@@ -81,11 +81,11 @@ This is only applicable when multiple modules are resolved.
 
 ___
 
-### mergeReadme
+### enumMembersFormat
 
-<Callout>Merges the resolved readme into the project index page.</Callout>
+<Callout>Specify the render style of enumuration members.</Callout>
 
-> Accepts a boolean value. Defaults to `false`.
+> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
 
 By default when a readme file is resolved, a seperate readme page is created. This option prepends the readme contents into the index page so only a single root page is genertaed.
 
@@ -94,7 +94,7 @@ This option has no effect when [`readme`](https://typedoc.org/options/input/#rea
 
 ```json filename="typedoc.json"
 {
-  "mergeReadme": false
+  "enumMembersFormat": "list"
 }
 
 ```
@@ -103,32 +103,32 @@ ___
 
 ## UI Options
 
-### hidePageHeader
+### excludeGroups
 
-<Callout>Do not print page header.</Callout>
+<Callout>Excludes grouping by kind so all members are rendered and sorted at the same level.</Callout>
 
 > Accepts a boolean value. Defaults to `false`.
 
 
 ```json filename="typedoc.json"
 {
-  "hidePageHeader": false
+  "excludeGroups": false
 }
 
 ```
 
 ___
 
-### hidePageTitle
+### expandObjects
 
-<Callout>Do not print page title.</Callout>
+<Callout>Expand objects inside declarations.</Callout>
 
 > Accepts a boolean value. Defaults to `false`.
 
 
 ```json filename="typedoc.json"
 {
-  "hidePageTitle": false
+  "expandObjects": false
 }
 
 ```
@@ -167,13 +167,73 @@ ___
 
 ___
 
-### ~indexPageTitle~
+### ~hidePageHeader~
 
 <Callout type="warning">Deprecated - Please use `textContentMappings`.</Callout>
 
-> Accepts a string value. Defaults to `"{ProjectName}"`.
+> Accepts a boolean value. Defaults to `false`.
 
 Provides a mechanism to change the main project index page title.
+
+
+```json filename="typedoc.json"
+{
+  "hidePageHeader": false
+}
+
+```
+
+___
+
+### ~hidePageTitle~
+
+<Callout type="warning">Deprecated - Please use `textContentMappings`.</Callout>
+
+> Accepts a boolean value. Defaults to `false`.
+
+Provides a mechanism to configure the page title of members.
+
+
+```json filename="typedoc.json"
+{
+  "hidePageTitle": false
+}
+
+```
+
+___
+
+### indexFormat
+
+<Callout>Specify the render format for index items.</Callout>
+
+> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
+
+By default members are grouped by kind (eg Classes, Functions etc).
+
+This creates a flat structure where all members are displayed at the same heading level.
+
+
+```json filename="typedoc.json"
+{
+  "indexFormat": "list"
+}
+
+```
+
+___
+
+### indexPageTitle
+
+<Callout>The title of project index page.</Callout>
+
+> Accepts a string value. Defaults to `"{ProjectName}"`.
+
+This option can be used to improve readability and aesthetics when defining signatures and declarations.
+
+Please note that when this option is set to `true` it is not possible to link to other references.
+
+As a work around the [`@link`](https://typedoc.org/tags/link/) tag can be be used to manually reference types.
 
 
 ```json filename="typedoc.json"
@@ -185,71 +245,11 @@ Provides a mechanism to change the main project index page title.
 
 ___
 
-### ~memberPageTitle~
+### memberPageTitle
 
-<Callout type="warning">Deprecated - Please use `textContentMappings`.</Callout>
+<Callout>The page title of member pages.</Callout>
 
 > Accepts a string value. Defaults to `"{kind}: {name}"`.
-
-Provides a mechanism to configure the page title of members.
-
-
-```json filename="typedoc.json"
-{
-  "memberPageTitle": "{kind}: {name}"
-}
-
-```
-
-___
-
-### excludeGroups
-
-<Callout>Excludes grouping by kind so all members are rendered and sorted at the same level.</Callout>
-
-> Accepts a boolean value. Defaults to `false`.
-
-By default members are grouped by kind (eg Classes, Functions etc).
-
-This creates a flat structure where all members are displayed at the same heading level.
-
-
-```json filename="typedoc.json"
-{
-  "excludeGroups": false
-}
-
-```
-
-___
-
-### useCodeBlocks
-
-<Callout>Wraps signatures and declarations in code blocks.</Callout>
-
-> Accepts a boolean value. Defaults to `false`.
-
-This option can be used to improve readability and aesthetics when defining signatures and declarations.
-
-Please note that when this option is set to `true` it is not possible to link to other references.
-
-As a work around the [`@link`](https://typedoc.org/tags/link/) tag can be be used to manually reference types.
-
-
-```json filename="typedoc.json"
-{
-  "useCodeBlocks": false
-}
-
-```
-
-___
-
-### expandObjects
-
-<Callout>Expand objects inside declarations.</Callout>
-
-> Accepts a boolean value. Defaults to `false`.
 
 By default objects inside declarations are collapsed to preserve space and improve readability.
 
@@ -266,7 +266,61 @@ This option should be set when a full object representation is preferred.
 
 ```json filename="typedoc.json"
 {
-  "expandObjects": false
+  "memberPageTitle": "{kind}: {name}"
+}
+
+```
+
+___
+
+### mergeReadme
+
+<Callout>Merges the resolved readme into the project index page.</Callout>
+
+> Accepts a boolean value. Defaults to `false`.
+
+This option either renders parameters for functions and class methods as a list or in tabular format.
+
+
+```json filename="typedoc.json"
+{
+  "mergeReadme": false
+}
+
+```
+
+___
+
+### namedAnchors
+
+<Callout>Add HTML named anchors to headings and table rows.</Callout>
+
+> Accepts a boolean value. Defaults to `false`.
+
+This option either renders properties for classes and interfaces as a list or in tabular format.
+
+
+```json filename="typedoc.json"
+{
+  "namedAnchors": false
+}
+
+```
+
+___
+
+### outputFileStrategy
+
+<Callout>Determines how output files are generated.</Callout>
+
+> Accepts either `"members"` or `"modules"`. Defaults to `"members"`.
+
+This option either renders members of enums as a list or in tabular format.
+
+
+```json filename="typedoc.json"
+{
+  "outputFileStrategy": "members"
 }
 
 ```
@@ -279,7 +333,7 @@ ___
 
 > Accepts either `"list"` or `"table"`. Defaults to `"list"`.
 
-This option either renders parameters for functions and class methods as a list or in tabular format.
+This option either renders type declrations as a list or in tabular format.
 
 
 ```json filename="typedoc.json"
@@ -291,83 +345,29 @@ This option either renders parameters for functions and class methods as a list 
 
 ___
 
-### propertiesFormat
+### preserveAnchorCasing
 
-<Callout>Specify the render style of property groups for interfaces and classes.</Callout>
+<Callout>Preserve anchor casing when generating link to symbols.</Callout>
 
-> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
-
-This option either renders properties for classes and interfaces as a list or in tabular format.
-
-
-```json filename="typedoc.json"
-{
-  "propertiesFormat": "list"
-}
-
-```
-
-___
-
-### enumMembersFormat
-
-<Callout>Specify the render style of enumuration members.</Callout>
-
-> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
-
-This option either renders members of enums as a list or in tabular format.
-
-
-```json filename="typedoc.json"
-{
-  "enumMembersFormat": "list"
-}
-
-```
-
-___
-
-### typeDeclarationFormat
-
-<Callout>Specify the render style for type declaration members.</Callout>
-
-> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
-
-This option either renders type declrations as a list or in tabular format.
-
-
-```json filename="typedoc.json"
-{
-  "typeDeclarationFormat": "list"
-}
-
-```
-
-___
-
-### indexFormat
-
-<Callout>Specify the render format for index items.</Callout>
-
-> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
+> Accepts a boolean value. Defaults to `false`.
 
 This option renders index items either as a simple list or in a table with a description column exposing the comment summary.
 
 
 ```json filename="typedoc.json"
 {
-  "indexFormat": "list"
+  "preserveAnchorCasing": false
 }
 
 ```
 
 ___
 
-### textContentMappings
+### propertiesFormat
 
-<Callout>Provides a mechanism to change the content of text used in documentation.</Callout>
+<Callout>Specify the render style of property groups for interfaces and classes.</Callout>
 
-> Accepts a key/value object.
+> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
 
 This option enables changing static text rendered to the documentation.
 Useful if an alternative English phrase is preferred or to translate English text to another language.
@@ -389,6 +389,46 @@ Keys are categorised with the following namespace conventions:
 - `kind.*` defines text mappings to TypeDoc's `ReflectionKind` definitions.
 
 Only keys that require translation need to be added to the object.
+
+
+```json filename="typedoc.json"
+{
+  "propertiesFormat": "list"
+}
+
+```
+
+___
+
+## Utility Options
+
+### publicPath
+
+<Callout>Specify the base path for all urls.</Callout>
+
+> Accepts a string value. Defaults to `"undefined"`.
+
+If undefined all urls will be relative.
+
+
+```json filename="typedoc.json"
+{
+  "publicPath": "http://abc.com"
+}
+
+```
+
+___
+
+### textContentMappings
+
+<Callout>Provides a mechanism to change the content of text used in documentation.</Callout>
+
+> Accepts a key/value object.
+
+By default references to symbol anchor links are lowercased.
+
+This option can be used for engines that require the preservation of anchor link casing.
 
 Below is the full list of keys and default values:
 
@@ -466,67 +506,27 @@ Below is the full list of keys and default values:
 
 ___
 
-## Utility Options
+### typeDeclarationFormat
 
-### publicPath
+<Callout>Specify the render style for type declaration members.</Callout>
 
-<Callout>Specify the base path for all urls.</Callout>
-
-> Accepts a string value. Defaults to `"undefined"`.
-
-If undefined all urls will be relative.
-
-
-```json filename="typedoc.json"
-{
-  "publicPath": "http://abc.com"
-}
-
-```
-
-___
-
-### preserveAnchorCasing
-
-<Callout>Preserve anchor casing when generating link to symbols.</Callout>
-
-> Accepts a boolean value. Defaults to `false`.
-
-By default references to symbol anchor links are lowercased.
-
-This option can be used for engines that require the preservation of anchor link casing.
-
-
-```json filename="typedoc.json"
-{
-  "preserveAnchorCasing": false
-}
-
-```
-
-___
-
-### anchorPrefix
-
-<Callout>Custom anchor prefix</Callout>
-
-> Accepts a string value. Defaults to `"undefined"`.
+> Accepts either `"list"` or `"table"`. Defaults to `"list"`.
 
 This option should be used when parsers requiren a custom anchor prefix.
 
 
 ```json filename="typedoc.json"
 {
-  "anchorPrefix": "markdown-header"
+  "typeDeclarationFormat": "markdown-header"
 }
 
 ```
 
 ___
 
-### namedAnchors
+### useCodeBlocks
 
-<Callout>Add HTML named anchors to headings and table rows.</Callout>
+<Callout>Wraps signatures and declarations in code blocks.</Callout>
 
 > Accepts a boolean value. Defaults to `false`.
 
@@ -538,7 +538,7 @@ This option should be used if there are issues with anchoring to symbols within 
 
 ```json filename="typedoc.json"
 {
-  "namedAnchors": false
+  "useCodeBlocks": false
 }
 
 ```

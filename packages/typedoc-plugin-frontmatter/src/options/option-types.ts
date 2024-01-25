@@ -4,18 +4,18 @@ import { ManuallyValidatedOption } from 'typedoc';
 
 declare module 'typedoc' {
   export interface TypeDocOptionMap {
-    frontmatterGlobals: ManuallyValidatedOption<FrontmatterGlobals>;
     frontmatterCommentTags: any[];
-    preserveFrontmatterCommentTags: boolean;
+    frontmatterGlobals: ManuallyValidatedOption<FrontmatterGlobals>;
     frontmatterNamingConvention: 'camelCase' | 'snakeCase';
+    preserveFrontmatterCommentTags: boolean;
   }
 }
 
 export interface PluginOptions {
-  frontmatterGlobals: ManuallyValidatedOption<FrontmatterGlobals>;
   frontmatterCommentTags: any[];
-  preserveFrontmatterCommentTags: boolean;
+  frontmatterGlobals: ManuallyValidatedOption<FrontmatterGlobals>;
   frontmatterNamingConvention: 'camelCase' | 'snakeCase';
+  preserveFrontmatterCommentTags: boolean;
 }
 
 export interface FrontmatterGlobals {}

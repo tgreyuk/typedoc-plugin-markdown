@@ -212,7 +212,7 @@ function getExampleValue(option) {
 }
 
 function getDocsPath(docsPath: string) {
-  const pagesPath = path.join(__dirname, '..', '..', '..', 'docs', 'pages');
+  const pagesPath = path.join(path.resolve(), '..', '..', 'docs', 'pages');
   return path.join(pagesPath, docsPath);
 }
 

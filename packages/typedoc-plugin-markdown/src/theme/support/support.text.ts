@@ -1,10 +1,10 @@
 import { Options, ReflectionKind } from 'typedoc';
-import { TextContentMappings } from '../../plugin/options/option-types';
+import { TextContentMappings } from '../../plugin/options/option-types.js';
 import {
   PLURAL_KIND_KEY_MAP,
   SINGULAR_KIND_KEY_MAP,
   TEXT_MAPPING_DEFAULTS,
-} from '../../plugin/options/text-mappings';
+} from '../../plugin/options/text-mappings/index.js';
 
 export const text = (options: Options) => {
   const textFromOptions = options.getValue('textContentMappings');

@@ -1,14 +1,3 @@
 {
-  "compilerOptions": {
-    "declaration": false,
-    "lib": ["es2018", "dom"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "noUnusedLocals": false,
-    "esModuleInterop": true,
-    "strictNullChecks": false,
-    "target": "es2018"
-  },
-  "exclude": ["./src", "**/*.spec.ts"]
+  "extends": "../../tsconfig.test.json"
 }

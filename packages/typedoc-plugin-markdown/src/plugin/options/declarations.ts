@@ -1,6 +1,6 @@
 import { DeclarationOption, ParameterType } from 'typedoc';
-import { FormatStyle, OutputFileStrategy } from './option-maps';
-import { TEXT_MAPPING_DEFAULTS } from './text-mappings/text-mapping-defaults';
+import { FormatStyle, OutputFileStrategy } from './option-maps.js';
+import { TEXT_MAPPING_DEFAULTS } from './text-mappings/text-mapping-defaults.js';
 
 /**
  *

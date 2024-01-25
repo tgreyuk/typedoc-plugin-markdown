@@ -1,4 +1,4 @@
-export { memberTemplate } from './member';
-export { projectTemplate } from './project';
-export { readmeTemplate } from './read-me';
-export { reflectionTemplate } from './reflection';
+export { memberTemplate } from './member.js';
+export { projectTemplate } from './project.js';
+export { readmeTemplate } from './read-me.js';
+export { reflectionTemplate } from './reflection.js';

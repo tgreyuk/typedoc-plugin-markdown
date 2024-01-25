@@ -1,6 +1,6 @@
 import { NavigationItem } from 'typedoc-plugin-markdown';
 
-export = (navigation: NavigationItem[], basePath: string) => {
+export default (navigation: NavigationItem[], basePath: string) => {
   return navigation.map((navigationItem) => {
     return getNavigationItem(navigationItem, basePath);
   });

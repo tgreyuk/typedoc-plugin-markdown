@@ -4,56 +4,56 @@ import { ManuallyValidatedOption } from 'typedoc';
 
 declare module 'typedoc' {
   export interface TypeDocOptionMap {
-    outputFileStrategy: 'members' | 'modules';
+    anchorPrefix: string;
     entryFileName: string;
     entryModule: string;
-    mergeReadme: boolean;
-    hidePageHeader: boolean;
-    hidePageTitle: boolean;
+    enumMembersFormat: 'list' | 'table';
+    excludeGroups: boolean;
+    expandObjects: boolean;
     hideBreadcrumbs: boolean;
     hideInPageTOC: boolean;
+    hidePageHeader: boolean;
+    hidePageTitle: boolean;
+    indexFormat: 'list' | 'table';
     indexPageTitle: string;
     memberPageTitle: string;
-    excludeGroups: boolean;
-    useCodeBlocks: boolean;
-    expandObjects: boolean;
-    parametersFormat: 'list' | 'table';
-    propertiesFormat: 'list' | 'table';
-    enumMembersFormat: 'list' | 'table';
-    typeDeclarationFormat: 'list' | 'table';
-    indexFormat: 'list' | 'table';
-    textContentMappings: ManuallyValidatedOption<TextContentMappings>;
-    publicPath: string;
-    preserveAnchorCasing: boolean;
-    anchorPrefix: string;
+    mergeReadme: boolean;
     namedAnchors: boolean;
+    outputFileStrategy: 'members' | 'modules';
+    parametersFormat: 'list' | 'table';
+    preserveAnchorCasing: boolean;
+    propertiesFormat: 'list' | 'table';
+    publicPath: string;
+    textContentMappings: ManuallyValidatedOption<TextContentMappings>;
+    typeDeclarationFormat: 'list' | 'table';
+    useCodeBlocks: boolean;
   }
 }
 
 export interface PluginOptions {
-  outputFileStrategy: 'members' | 'modules';
+  anchorPrefix: string;
   entryFileName: string;
   entryModule: string;
-  mergeReadme: boolean;
-  hidePageHeader: boolean;
-  hidePageTitle: boolean;
+  enumMembersFormat: 'list' | 'table';
+  excludeGroups: boolean;
+  expandObjects: boolean;
   hideBreadcrumbs: boolean;
   hideInPageTOC: boolean;
+  hidePageHeader: boolean;
+  hidePageTitle: boolean;
+  indexFormat: 'list' | 'table';
   indexPageTitle: string;
   memberPageTitle: string;
-  excludeGroups: boolean;
-  useCodeBlocks: boolean;
-  expandObjects: boolean;
-  parametersFormat: 'list' | 'table';
-  propertiesFormat: 'list' | 'table';
-  enumMembersFormat: 'list' | 'table';
-  typeDeclarationFormat: 'list' | 'table';
-  indexFormat: 'list' | 'table';
-  textContentMappings: ManuallyValidatedOption<TextContentMappings>;
-  publicPath: string;
-  preserveAnchorCasing: boolean;
-  anchorPrefix: string;
+  mergeReadme: boolean;
   namedAnchors: boolean;
+  outputFileStrategy: 'members' | 'modules';
+  parametersFormat: 'list' | 'table';
+  preserveAnchorCasing: boolean;
+  propertiesFormat: 'list' | 'table';
+  publicPath: string;
+  textContentMappings: ManuallyValidatedOption<TextContentMappings>;
+  typeDeclarationFormat: 'list' | 'table';
+  useCodeBlocks: boolean;
 }
 
 export interface TextContentMappings {

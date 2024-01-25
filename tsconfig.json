@@ -4,13 +4,13 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "lib": ["es2018", "dom"],
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "removeComments": false,
     "sourceMap": false,
     "strictNullChecks": true,
-    "target": "es2018"
-  }
+    "target": "es2018",
+  },
 }

@@ -1,5 +1,4 @@
-const base = require('../../jest.config.base.js');
-const path = require('path');
+const base = require('../../jest.config.base.cjs');
 
 module.exports = {
   ...base,

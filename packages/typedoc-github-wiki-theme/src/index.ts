@@ -10,10 +10,10 @@ import {
   NavigationItem,
   OutputFileStrategy,
 } from 'typedoc-plugin-markdown';
-import { DEFAULT_SIDEBAR_OPTIONS } from './options';
-import * as options from './options/declarations';
-import presets from './options/presets';
-import { GithubWikiTheme } from './theme';
+import { DEFAULT_SIDEBAR_OPTIONS } from './options.js';
+import * as options from './options/declarations.js';
+import presets from './options/presets.js';
+import { GithubWikiTheme } from './theme.js';
 
 export function load(app: Application) {
   app.renderer.defineTheme('github-wiki', GithubWikiTheme);

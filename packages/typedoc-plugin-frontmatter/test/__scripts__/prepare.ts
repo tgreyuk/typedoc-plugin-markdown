@@ -1,12 +1,11 @@
 import { spawn } from 'child_process';
 import { consola } from 'consola';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 
 const timeStart = new Date().getTime();
 
 consola.start(`Building test fixtures...`);
 
-// remove output dir
 fs.removeSync(`./test/out`);
 
 const fixtures = [
@@ -38,6 +37,7 @@ function writeMarkdown(fixture: any) {
     },
   );
 }
+
 process.on('exit', () => {
   consola.success(
     `Finished building fixtures in ${(

@@ -1,14 +1,14 @@
 import { spawn } from 'child_process';
 import { consola } from 'consola';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import * as path from 'path';
 import {
   FIXTURES,
   FixtureEntryPoints,
   FixtureOutputDir,
   FixtureOutputFileStrategy,
-} from '../__utils__/fixture-config';
-import { Fixture } from '../__utils__/models';
+} from '../__utils__/fixture-config.js';
+import { Fixture } from '../__utils__/models.js';
 
 const timeStart = new Date().getTime();
 
@@ -142,7 +142,12 @@ function objectToOptions(obj: any) {
       '-plugin',
       'typedoc-plugin-markdown',
       '-plugin',
-      path.join(__dirname, '..', 'custom-plugins', 'navigation-plugin.mjs'),
+      path.join(
+        path.resolve(),
+        'test',
+        'custom-plugins',
+        'navigation-plugin.mjs',
+      ),
     ],
   );
 }

@@ -1,4 +1,4 @@
-import { KIND_DEFAULTS } from './kind-defaults';
+import { KIND_DEFAULTS } from './kind-defaults.js';
 
 export const TEXT_MAPPING_DEFAULTS = {
   'header.title': '{projectName} {version}',

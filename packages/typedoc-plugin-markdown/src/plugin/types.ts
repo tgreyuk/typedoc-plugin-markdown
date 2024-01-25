@@ -1,6 +1,6 @@
 import { Application, EventHooks, Options, Renderer } from 'typedoc';
-import { MarkdownThemeRenderContext } from '../theme';
-import { MarkdownRendererEvent } from './events';
+import { MarkdownThemeRenderContext } from '../theme/index.js';
+import { MarkdownRendererEvent } from './events.js';
 
 /**
  * The plugin amends the renderer with additional hooks and options.

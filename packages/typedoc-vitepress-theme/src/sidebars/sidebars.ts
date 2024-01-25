@@ -1,8 +1,8 @@
 import { NavigationItem } from 'typedoc-plugin-markdown';
 import { Sidebar } from '../options/models';
-import sidebarVitepress from './sidebar.vitepress';
-import sidebarVuepress1 from './sidebar.vuepress1';
-import sidebarVuepress2 from './sidebar.vuepress2';
+import sidebarVitepress from './sidebar.vitepress.js';
+import sidebarVuepress1 from './sidebar.vuepress1.js';
+import sidebarVuepress2 from './sidebar.vuepress2.js';
 
 export function getSidebar(
   navigation: NavigationItem[],

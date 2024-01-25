@@ -1,9 +1,9 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env ts-node-esm
 
 import { DOCS_CONFIG, DocsConfig, getPackageName } from '@dev-packages/helpers';
 import { consola } from 'consola';
-import { generateDocs } from './tasks/generate-docs';
-import { generateModels } from './tasks/generate-models';
+import { generateDocs } from './tasks/generate-docs.js';
+import { generateModels } from './tasks/generate-models.js';
 
 main();
 

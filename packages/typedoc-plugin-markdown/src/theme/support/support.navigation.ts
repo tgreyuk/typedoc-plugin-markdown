@@ -7,9 +7,9 @@ import {
   ReflectionGroup,
   ReflectionKind,
 } from 'typedoc';
-import { MarkdownTheme } from '../..';
-import { OutputFileStrategy } from '../../plugin/options/option-maps';
-import { text } from './support.text';
+import { MarkdownTheme } from '../../index.js';
+import { OutputFileStrategy } from '../../plugin/options/option-maps.js';
+import { text } from './support.text.js';
 
 export interface NavigationItem {
   title: string;

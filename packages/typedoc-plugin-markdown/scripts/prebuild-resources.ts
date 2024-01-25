@@ -7,7 +7,7 @@ const project = new Project({
   tsConfigFilePath: 'tsconfig.json',
 });
 
-const resourcesPath = path.join(__dirname, '..', 'src', 'theme', 'resources');
+const resourcesPath = path.join(path.resolve(), 'src', 'theme', 'resources');
 
 export async function prebuildResources() {
   writeBarrelsFile('partials');
@@ -36,8 +36,7 @@ function writeBarrelsFile(resourceType: 'partials' | 'templates') {
   const files = getFiles(resourceType).filter((file) => file !== 'index');
   const symbols = getSymbols(files, resourceType);
   const barrelsFile = path.join(
-    __dirname,
-    '..',
+    path.resolve(),
     'src',
     'theme',
     'resources',
@@ -46,15 +45,14 @@ function writeBarrelsFile(resourceType: 'partials' | 'templates') {
   );
   const out: string[] = [];
   files.forEach((file, index) => {
-    out.push(`export { ${symbols[index].symbolName} } from './${file}';`);
+    out.push(`export { ${symbols[index].symbolName} } from './${file}.js';`);
   });
   fs.writeFileSync(barrelsFile, out.join('\n'));
 }
 
 async function writeResourcesFile() {
   const resourcesFile = path.join(
-    __dirname,
-    '..',
+    path.resolve(),
     'src',
     'theme',
     'resources',
@@ -85,7 +83,7 @@ function getResourceImports(resourceType: 'partials' | 'templates') {
   return `
   import { ${symbols
     .map((symbol) => symbol.symbolName)
-    .join(', ')} } from './${resourceType}';
+    .join(', ')} } from './${resourceType}/index.js';
  `;
 }
 

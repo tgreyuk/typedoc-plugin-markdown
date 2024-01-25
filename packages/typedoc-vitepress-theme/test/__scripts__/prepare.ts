@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 import { consola } from 'consola';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 
 const timeStart = new Date().getTime();
 

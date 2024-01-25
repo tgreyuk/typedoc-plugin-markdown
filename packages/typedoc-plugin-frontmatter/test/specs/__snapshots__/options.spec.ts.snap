@@ -2,7 +2,6 @@
 
 exports[`Options: YAML should prepend frontmatter 1`] = `
 "---
-title: SomeInterface
 layout: blog
 navOrder: 1
 hide: true
@@ -16,7 +15,6 @@ tagTwo: "'Frontmatter' tag"
 
 exports[`Options: YAML should prepend frontmatter with preserved tags 1`] = `
 "---
-title: SomeInterface
 layout: blog
 navOrder: 1
 hide: true
